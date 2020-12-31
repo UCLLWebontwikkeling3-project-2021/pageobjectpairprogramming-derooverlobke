@@ -69,7 +69,7 @@ public class SignUpPage extends Page {
     }
 
     public boolean hasErrorMessage (String message) {
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li"));//oscar alert-danger
+        WebElement errorMsg = driver.findElement(By.id("errorFor-email"));  //oscar  By.cssSelector(div.alert-danger ul li)
         return (message.equals(errorMsg.getText()));
     }
 

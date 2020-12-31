@@ -79,22 +79,22 @@ public class OverviewPageTest {
 
         PersonOverviewPage personOverviewPage = PageFactory.initElements(driver, PersonOverviewPage.class);
 
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li")); //oscar div.alert-danger
+        WebElement errorMsg = driver.findElement(By.id("statusMessage")); //oscar By.cssSelector("div.alert-danger ul li")
         //assert both lobke and my error for an incorrect overviewPage access
         assertTrue(
                 errorMsg.getText().equals("only admins can see all users")
-                        || driver.getTitle().equals("Error"));
+                        || driver.getTitle().equals("Welkom"));
     }
 
     @Test
     public void test_PersonOverview_NoOneLoggedIn_NotAllowedToSeeOverview() {
         PersonOverviewPage personOverviewPage = PageFactory.initElements(driver, PersonOverviewPage.class);
 
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li")); //oscar div.alert-danger
+        WebElement errorMsg = driver.findElement(By.id("statusMessage"));//oscar By.cssSelector("div.alert-danger ul li")
         //assert both lobke and my error for an incorrect overviewPage access
         assertTrue(
                 errorMsg.getText().equals("log in as admin to see this page")
-                        | driver.getTitle().equals("Error"));
+                        | driver.getTitle().equals("Welkom"));
 
     }
 
@@ -115,7 +115,7 @@ public class OverviewPageTest {
 
         assertTrue(
                 signUpPage.hasErrorMessage("Email not valid")
-                        || signUpPage.hasErrorMessage("E-mail is niet geldig."));
+                        || signUpPage.hasErrorMessage("Vul een geldig email in"));
 
         homePage = signInAsAdmin();
 
