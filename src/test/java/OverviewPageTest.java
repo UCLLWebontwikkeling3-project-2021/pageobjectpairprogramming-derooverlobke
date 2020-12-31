@@ -79,7 +79,7 @@ public class OverviewPageTest {
 
         PersonOverviewPage personOverviewPage = PageFactory.initElements(driver, PersonOverviewPage.class);
 
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.alert-danger ul li"));
+        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li")); //oscar div.alert-danger
         //assert both lobke and my error for an incorrect overviewPage access
         assertTrue(
                 errorMsg.getText().equals("only admins can see all users")
@@ -90,7 +90,7 @@ public class OverviewPageTest {
     public void test_PersonOverview_NoOneLoggedIn_NotAllowedToSeeOverview() {
         PersonOverviewPage personOverviewPage = PageFactory.initElements(driver, PersonOverviewPage.class);
 
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.alert-danger ul li"));
+        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li")); //oscar div.alert-danger
         //assert both lobke and my error for an incorrect overviewPage access
         assertTrue(
                 errorMsg.getText().equals("log in as admin to see this page")

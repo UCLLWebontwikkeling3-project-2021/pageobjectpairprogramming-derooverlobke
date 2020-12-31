@@ -29,7 +29,7 @@ public class SignUpPage extends Page {
     @FindBy(id="signUp")
     private WebElement signUpButton;
 
-    public SignUpPage (WebDriver driver) {
+    public SignUpPage(WebDriver driver) {
         super(driver);
         this.driver.get(getPath()+"?command=Register");
     }
@@ -69,7 +69,7 @@ public class SignUpPage extends Page {
     }
 
     public boolean hasErrorMessage (String message) {
-        WebElement errorMsg = driver.findElement(By.cssSelector("div.alert-danger ul li"));
+        WebElement errorMsg = driver.findElement(By.cssSelector("div.error-danger ul li"));//oscar alert-danger
         return (message.equals(errorMsg.getText()));
     }
 
